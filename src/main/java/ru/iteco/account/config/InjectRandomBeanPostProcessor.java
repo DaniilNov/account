@@ -20,7 +20,7 @@ public class InjectRandomBeanPostProcessor implements BeanPostProcessor {
                 declaredField.setAccessible(true);
                 InjectRandom annotation = declaredField.getAnnotation(InjectRandom.class);
                 int random = getRandom(annotation.min(), annotation.max());
-                log.info("Set random value in " + declaredField + "; value " + random);
+                System.out.println("Set random value in " + declaredField.getName() + "; value " + random);
                 ReflectionUtils.setField(declaredField, bean, random);
             }
         }

@@ -14,10 +14,10 @@ import java.util.Map;
 public class AccountServiceImpl implements AccountService {
 
     private final PersonalInformationService personalInformationService;
-    private final Map<String,BankBookService> bankBookServices;
+    private final Map<String, BankBookService> bankBookServices;
 
     public AccountServiceImpl(PersonalInformationService personalInformationService,
-                              Map<String,BankBookService> bankBookServices) {
+                              Map<String, BankBookService> bankBookServices) {
         this.personalInformationService = personalInformationService;
         this.bankBookServices = bankBookServices;
     }
@@ -27,7 +27,7 @@ public class AccountServiceImpl implements AccountService {
         PersonalInfo personalInfo = personalInformationService.getPersonalInfoById(id);
         AccountInfo accountInfo = new AccountInfo();
         accountInfo.setPersonalInfo(personalInfo);
-        for (Map.Entry<String,BankBookService> bankBookServiceEntry : bankBookServices.entrySet()) {
+        for (Map.Entry<String, BankBookService> bankBookServiceEntry : bankBookServices.entrySet()) {
             BankBookService bankBookService = bankBookServiceEntry.getValue();
             List<BankBook> bankBooks = bankBookService.getBankBooksById(id);
             System.out.println(bankBooks);
