@@ -1,6 +1,5 @@
 package ru.iteco.account.service;
 
-public interface IObjectValue {
-
+public interface ExternalService {
     String getInfo();
 }
